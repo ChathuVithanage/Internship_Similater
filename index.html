@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CHOCO GATEWAY</title>
+    <!-- Include Tailwind CSS via CDN -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      #one {
+        z-index: 10;
+        background-image: url("/assets/bg2.png");
+      }
+
+      /*underneath*/
+      #two {
+        background-image: url("/assets/decorator.png");
+        height: 200px;
+        transform: rotate(180deg);
+        z-index: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="flex bg-gray-800 text-white p-4">
+      <button
+        id="openMenuBtn"
+        class="md:hidden fixed top-4 left-4 p-2 text-white bg-gray-800"
+        style="z-index: 10000"
+      >
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="flex items-center space-x-4 hidden md:block">
+        <a href="#" class="hover:underline">Home</a>
+        <a href="#" class="hover:underline">Products</a>
+        <a href="#" class="hover:underline">Categories</a>
+        <a href="#" class="hover:underline">Specials</a>
+        <a href="#" class="hover:underline">Contact</a>
+      </div>
+
+      <div class="flex-grow text-center md:w-auto">
+        <div class="text-2xl font-bold">CHOCOLAT</div>
+      </div>
+
+      <div class="flex items-center space-x-4">
+        <button class="text-white hover:text-gray-300 hidden md:inline">
+          <i class="fas fa-search"></i>
+        </button>
+        <button class="text-white hover:text-gray-300 hidden md:inline">
+          <i class="fas fa-user"></i> Login
+        </button>
+        <button class="relative text-white hover:text-gray-300">
+          <i class="fas fa-shopping-cart"></i>
+        </button>
+        <button class="relative text-white hover:text-gray-300">
+          <i class="fas fa-heart"></i>
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <div
+        id="mobileMenu"
+        class="hidden md:hidden fixed inset-0 bg-black"
+        style="z-index: 10000"
+      >
+        <div class="flex flex-col p-4">
+          <!-- Top Section: CHOCOLAT and Close Button -->
+          <div class="flex justify-between items-center mb-4">
+            <div class="text-2xl font-bold text-white">CHOCOLAT</div>
+            <button id="closeMenuBtn" class="p-2 text-white">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+
+          <!-- Search Bar -->
+          <div class="mb-4">
+            <div class="flex items-center bg-white rounded-md overflow-hidden">
+              <input
+                type="text"
+                placeholder="Search"
+                class="flex-grow px-4 py-2 text-gray-800"
+              />
+              <button class="bg-gray-800 text-white px-4 py-2">
+                <i class="fas fa-search"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Menu Items -->
+          <div class="mb-4">
+            <div class="text-white">Test 1</div>
+            <div class="text-white">Test 2</div>
+            <div class="text-white">Test 3</div>
+            <div class="text-white">Test 4</div>
+            <div class="text-white">Test 5</div>
+          </div>
+
+          <!-- Sign Up/Login Button -->
+          <button class="bg-red-500 text-white px-4 py-2 mb-4">
+            SIGN UP OR LOGIN
+          </button>
+
+          <!-- Horizontal Ruler -->
+          <div class="border-b border-white mb-4"></div>
+
+          <!-- Links -->
+          <div class="text-white">
+            <div>Wishlist</div>
+            <div>FAQ</div>
+            <div>TERMS & CONDITIONS</div>
+          </div>
+        </div>
+      </div>
+      <!-- section -->
+      <!-- <div class="flex flex-col items-center justify-center"> -->
+      <!-- Image with Text in the Center -->
+
+      <!-- Image with Text in the Center -->
+      <div class="relative">
+        <img src="assets/bg1.png" alt="Chocolate Bliss" class="w-full h-auto" />
+        <div
+          class="absolute inset-0 flex flex-col items-center justify-center text-white"
+        >
+          <h1 class="lg:text-4xl font-bold text-sm">
+            CHOCOLATE BLISS AWAITS LOGIN!
+          </h1>
+          <div class="w-1/4 mx-auto my-4 border-b border-gray-400"></div>
+          <div class="flex space-x-4 lg:text-2xl text-sm">
+            <a href="#" class="hover:underline">HOME</a>
+            <a href="#" class="hover:underline">LOGIN</a>
+          </div>
+        </div>
+      </div>
+      <!-- </div> -->
+      <!-- Two Columns with Image and Form -->
+      <div class="flex p-8 bg-black text-gray-300">
+        <!-- Left Column with Rotated Image -->
+        <div id="one" class="relative w-1/3 hidden lg:relative">
+          <div class="p-0 m-0 absolute bottom-20 left-0 transform -rotate-90">
+            <p class="text-4xl font-bold">
+              CHOCO <br />
+              GATEWAY.
+            </p>
+          </div>
+        </div>
+
+        <!-- Right Column with Form -->
+        <div class="w-full p-8">
+          <!-- Button Group -->
+          <div class="flex justify-center mb-4">
+            <button
+              id="loginBtn"
+              class="px-4 py-2 mx-2 hover:bg-red-300 bg-red-500 text-white"
+              onclick="showLoginForm()"
+            >
+              LOGIN
+            </button>
+            <button
+              id="signUpBtn"
+              class="px-4 py-2 mx-2 hover:bg-red-300 text-white"
+              onclick="showSignupForm()"
+            >
+              REGISTER
+            </button>
+          </div>
+          <br />
+
+          <!-- signup form -->
+          <div class="mb-4" id="loginForm">
+            <div class="font-bold">Enter your account information</div>
+            <br />
+            <input
+              type="email"
+              placeholder="example@gmail.com"
+              class="w-full px-4 py-2 mt-2 bg-gray-100 text-gray-700"
+            />
+            <br />
+            <br />
+            <input
+              type="password"
+              placeholder="Password"
+              class="w-full px-4 py-2 mt-2 bg-gray-100 text-gray-700"
+            />
+            <br />
+            <br />
+            <div class="flex items-center mt-2">
+              <div class="flex items-center">
+                <a href=""
+                  ><i class="fas fa-envelope"></i> &nbsp; Forgot your
+                  password</a
+                >
+              </div>
+            </div>
+
+            <div class="mt-2">
+              If you don't have an account, Please <b>Register Here</b>
+            </div>
+            <br />
+
+            <button class="w-full px-4 py-2 mt-4 bg-red-500 text-white">
+              LOGIN
+            </button>
+            <br />
+            <br />
+            <div class="flex items-center mt-4">
+              <div class="flex-grow border-t border-gray-300"></div>
+              <div class="mx-4 text-gray-500">OR</div>
+              <div class="flex-grow border-t border-gray-300"></div>
+            </div>
+            <br />
+            <div class="flex justify-center mt-4">
+              <i class="fab fa-facebook p-4 text-2xl"></i>
+              <i class="fab fa-google p-4 text-2xl"></i>
+            </div>
+          </div>
+          <!-- signup form -->
+          <div class="hidden" id="signupForm">
+            <div class="mb-4">
+              <div class="font-bold">Enter your account information</div>
+            </div>
+            <div class="mb-4">
+              <input
+                type="text"
+                placeholder="First Name"
+                class="w-full px-4 py-2 mt-2 bg-gray-100 text-gray-700"
+              />
+            </div>
+            <div class="mb-4">
+              <input
+                type="text"
+                placeholder="Last Name"
+                class="w-full px-4 py-2 mt-2 bg-gray-100 text-gray-700"
+              />
+            </div>
+            <div class="mb-4">
+              <input
+                type="email"
+                placeholder="Email"
+                class="w-full px-4 py-2 mt-2 bg-gray-100 text-gray-700"
+              />
+            </div>
+            <div class="mb-4">
+              <input
+                type="password"
+                placeholder="New Password"
+                class="w-full px-4 py-2 mt-2 bg-gray-100 text-gray-700"
+              />
+            </div>
+            <div class="mb-4">
+              <input
+                type="password"
+                placeholder="Confirm Password"
+                class="w-full px-4 py-2 mt-2 bg-gray-100 text-gray-700"
+              />
+            </div>
+            <div class="mb-4">
+              <button
+                type="button"
+                onclick="register()"
+                class="w-full px-4 py-2 bg-red-500 text-white"
+              >
+                REGISTER
+              </button>
+            </div>
+            <div class="mb-4">
+              <p>
+                Already have an account?
+                <a href="#" onclick="showLoginForm()" class="text-blue-500"
+                  >Sign In</a
+                >
+              </p>
+            </div>
+            <div class="mb-4">
+              <div class="flex items-center">
+                <div class="flex-grow border-t border-gray-300"></div>
+                <div class="mx-4 text-gray-500">OR</div>
+                <div class="flex-grow border-t border-gray-300"></div>
+              </div>
+            </div>
+            <div class="mb-4">
+              <div class="flex justify-center">
+                <i class="fab fa-facebook p-4 text-2xl"></i>
+                <i class="fab fa-google p-4 text-2xl"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Rotated Background -->
+      <div id="two" class="w-full bg-cover bg-center bg-gray-200"></div>
+      <!-- Navigation Menu -->
+      <div class="flex flex-wrap lg:flex-nowrap justify-around p-5 bg-gray-200">
+        <!-- Column 1 -->
+        <div class="w-1/4 md:w-2/4 p-5">
+          <div class="text-2xl font-bold mb-5">CHOCOLAT</div>
+          <div class="mb-5 text-sm">
+            Lorem ipsum dolor sit amet consectetur. Nulla nisi volutpat purus
+            lorem congue in etiam ornare. Nam quisque dui neque scelerisque
+            facilisi. Arcu ut proin elementum lobortis amet. Nisl quis nunc
+            vitae lacinia. A amet quisque quis eget.
+          </div>
+          <!-- Icons and Text -->
+          <div class="flex items-center mb-2">
+            <div class="mr-2">
+              <span class="icon"><i class="fas fa-envelope"></i></span>
+            </div>
+            <div>Email: example@email.com</div>
+          </div>
+          <div class="flex items-center mb-2">
+            <div class="mr-2">
+              <span class="icon"><i class="fas fa-phone"></i></span>
+            </div>
+            <div>Phone: +1 234 567 890</div>
+          </div>
+          <div class="flex items-center">
+            <div class="mr-2">
+              <span class="icon"><i class="fas fa-map-marker"></i></span>
+            </div>
+            <div>123 Chocolate Street, City</div>
+          </div>
+        </div>
+
+        <div class="w-2/4 lg:w-2/4 flex">
+          <div class="w-1/2 p-5">
+            <div class="text-2xl font-bold mb-5">QUICK LINKS</div>
+            <ul class="flex flex-col space-y-4">
+              <li><a href="#" class="hover:underline">Text 01</a></li>
+              <li><a href="#" class="hover:underline">Text 02</a></li>
+              <li><a href="#" class="hover:underline">Text 03</a></li>
+              <li><a href="#" class="hover:underline">Text 04</a></li>
+              <li><a href="#" class="hover:underline">Text 05</a></li>
+            </ul>
+          </div>
+
+          <!-- Column 3 -->
+          <div class="w-1/2 p-5">
+            <div class="text-2xl font-bold mb-5">COLLECTIONS</div>
+            <ul class="flex flex-col space-y-4">
+              <li><a href="#" class="hover:underline">Text 07</a></li>
+              <li><a href="#" class="hover:underline">Text 08</a></li>
+              <li><a href="#" class="hover:underline">Text 09</a></li>
+              <li><a href="#" class="hover:underline">Text 10</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Column 4 -->
+        <div class="p-5 w-1/4 md:w-full">
+          <div class="text-2xl font-bold mb-5">NEWSLETTER</div>
+          <div class="mb-5 text-sm">
+            Welcome to our chocolate haven, where passion meets perfection.
+          </div>
+          <!-- Newsletter Form -->
+          <div class="flex">
+            <input
+              type="email"
+              class="w-3/4 p-2 border border-gray-300 rounded-l"
+              placeholder="Enter your email"
+              required
+            />
+            <button type="submit" class="w-1/4 p-2 bg-gray-300 rounded-r">
+              SEND
+            </button>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer
+      class="flex flex-wrap flex-row items-end footer bg-gray-200 p-4 text-center bg-cover bg-center"
+      style="background-image: url('/assets/decorator.png'); height: 250px"
+    >
+      <p class="text-black lg:text-white text-md w-full lg:w-1/2">
+        &copy; 2023 All Right Received | <a href="">Terms & Conditions</a> |
+        <a href="">Privacy Policy</a> | <a href="">Site Map</a>
+      </p>
+      <p
+        class="flex lg:justify-end justify-center w-full lg:w-1/2 text-white text-2xl space-x-4"
+      >
+        <i class="fab fa-tiktok"></i>
+        <i class="fab fa-youtube"></i>
+        <i class="fab fa-facebook"></i>
+        <i class="fab fa-instagram"></i>
+        <i class="fab fa-twitter"></i>
+      </p>
+    </footer>
+
+    <script>
+      document
+        .getElementById("openMenuBtn")
+        .addEventListener("click", function () {
+          document.getElementById("mobileMenu").classList.remove("hidden");
+        });
+
+      document
+        .getElementById("closeMenuBtn")
+        .addEventListener("click", function () {
+          document.getElementById("mobileMenu").classList.add("hidden");
+        });
+
+      function showSignupForm() {
+        document.getElementById("loginForm").classList.add("hidden");
+        document.getElementById("loginBtn").classList.remove("bg-red-500");
+        document.getElementById("signupForm").classList.remove("hidden");
+        document.getElementById("signUpBtn").classList.add("bg-red-500");
+      }
+
+      function showLoginForm() {
+        document.getElementById("signupForm").classList.add("hidden");
+        document.getElementById("loginForm").classList.remove("hidden");
+        document.getElementById("loginBtn").classList.add("bg-red-500");
+        document.getElementById("signUpBtn").classList.remove("bg-red-500");
+      }
+    </script>
+  </body>
+</html>
